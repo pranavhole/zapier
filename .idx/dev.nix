@@ -11,7 +11,10 @@
     pkgs.nodejs_20
     pkgs.nodePackages.nodemon
     pkgs.openssl
+    pkgs.openssh
+    pkgs.ssh
     pkgs.typescript
+
   ];
   # Sets environment variables in the workspace
   services.docker.enable = true;
