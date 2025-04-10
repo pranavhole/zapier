@@ -1,0 +1,28 @@
+{
+
+  "scripts": {
+
+    "start": "tsc -b && nodemon dist/index.js"
+
+  },
+
+  "dependencies": {
+
+    "@prisma/client": "^6.5.0",
+
+    "@types/axios": "^0.9.36",
+
+    "@types/express": "^5.0.0",
+
+    "axios": "^1.8.4",
+
+    "express": "^4.21.2",
+
+    "prisma": "^6.5.0",
+
+    "typescript": "^5.8.2"
+
+  }
+
+}
+
