@@ -11,8 +11,6 @@
     pkgs.nodejs_20
     pkgs.nodePackages.nodemon
     pkgs.openssl
-    pkgs.openssh
-    pkgs.ssh
     pkgs.typescript
 
   ];
