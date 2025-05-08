@@ -10,6 +10,7 @@ async function  main() {
     const producer = kafka.producer();
     await producer.connect();
     while(1){
+        
         const pendingRows = await client.zapRunOutbox.findMany({
             where:{},
             take:10
@@ -19,7 +20,7 @@ async function  main() {
             topic:TOPIC_NAME,
             messages:pendingRows.map((row)=>{
                 return {
-                    value:row.zapRunId
+                    value:JSON.stringify({zapRunId: row.zapRunId, stage: 0})
                 }
             })
         })
@@ -31,7 +32,6 @@ async function  main() {
                 }
             }
         })
-    
     }
     
 }

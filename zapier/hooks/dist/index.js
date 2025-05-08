@@ -37,7 +37,7 @@ app.post("/hooks/catch/:userId/:zapId", (req, res) => __awaiter(void 0, void 0, 
     }));
     res.json("data collected");
 }));
-app.listen(3000, () => {
-    console.log("Server listening on port 3000");
+app.listen(3004, () => {
+    console.log("Server listening on port 3004");
 });
 // post()

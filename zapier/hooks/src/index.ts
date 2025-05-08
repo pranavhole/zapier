@@ -21,7 +21,7 @@ app.post("/hooks/catch/:userId/:zapId", async(req,res)=>{
                 metaData : body
             }
         });
-        await client.zapRunOutbox.create({
+        await client.zapRunOutbox.create({ 
             data:{
                 zapRunId: run.id
             }
@@ -30,8 +30,8 @@ app.post("/hooks/catch/:userId/:zapId", async(req,res)=>{
 
     res.json("data collected")
 })
-app.listen(3000, () => {
-    console.log("Server listening on port 3000");
+app.listen(3004, () => {
+    console.log("Server listening on port 3004");
 });
 
 // post()

@@ -1,6 +1,6 @@
 import {Router} from "express";
 import { authMiddleware } from "../middleware";
-import { SignupSchema } from "../types";
+import { SignupSchema , SigninSchema } from "../types";
 import { prismaClient } from "../db";
 import jwt from "jsonwebtoken"
 
@@ -44,7 +44,7 @@ console.log("hello")
 
 router.post("/signin",async(req:any,res:any)=>{
     const body= req.body;
-    const parsedData = SignupSchema.safeParse(body);
+    const parsedData = SigninSchema.safeParse(body);
 
     if(!parsedData.success){
         return res.status(411).json({

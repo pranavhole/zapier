@@ -21,13 +21,12 @@ router.post("/", authMiddleware, async (req: any, res: any) => {
         const zap = await tx.zap.create({
             data: {
                 userId:id,
-                triggerId: "",
+                triggerId: "1",
                 action: {
                     create: parsedData.data.actions.map((x, index) => ({
-                
                             actionId: x.availableActionId,
-                            sortingOrder: index
-                        
+                            sortingOrder: index,
+                            metadata: x.actionMetadata,
                     }))
                 }
             }
@@ -35,10 +34,11 @@ router.post("/", authMiddleware, async (req: any, res: any) => {
         const trigger = await tx.trigger.create({
             data:{
                 triggerId:parsedData.data.availableTriggerId,
-                zapId:zap.id
-            }
+                zapId:zap.id,
+                
+                    }
         })
-        await prismaClient.zap.update({
+        await tx.zap.update({
             where:{
                 id:zap.id
             },
@@ -47,6 +47,7 @@ router.post("/", authMiddleware, async (req: any, res: any) => {
             }
         })
     })
+    res.send("Success")
 })
 
 router.get("/", authMiddleware,async (req:any, res:any) => {
